@@ -2,9 +2,16 @@ import styled from "styled-components";
 
 const StyledButton = styled.button`
   width: fit-content;
-  border-radius: 6.25rem;
+  white-space: nowrap;
+  border-radius: 0.1875rem;
   background: ${({ theme, secondary }) =>
-    secondary ? theme.colors.background : theme.colors.primary};
+    secondary
+      ? theme.colors.background
+      : `linear-gradient(
+    121deg,
+    rgb(96, 0, 252) 40%,
+    rgb(126, 46, 253) 100%
+  );`};
   padding: 0.75rem 1.15rem;
   color: ${({ theme, secondary }) =>
     secondary ? theme.colors.primary : theme.colors.background};
@@ -16,13 +23,15 @@ const StyledButton = styled.button`
   font-weight: 700;
   line-height: 110%; /* 0.9625rem */
   letter-spacing: 0.04375rem;
-  box-shadow: ${({ secondary }) =>
-    secondary ? `none` : `0px 4px 4px 0px #6000FC40`};
+  gap: 0.5rem;
+  display: flex;
+  align-items: center;
 `;
 
-const Button = ({ title, onClick, secondary }) => {
+const Button = ({ title, onClick, secondary, icon }) => {
   return (
     <StyledButton secondary={secondary} onClick={onClick}>
+      {icon && <img src={icon} alt="icon" width={16} height={16} />}
       {title}
     </StyledButton>
   );

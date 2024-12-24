@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CheckPattern from "@/components/CheckPattern";
 import RazorPayButton from "@/components/RazorpayButton";
 import { BREAK_POINTS } from "@/styles/responsive";
+import Button from "@/components/Button";
 
 const HeroContainer = styled.section`
   position: relative;
@@ -102,6 +103,21 @@ const HeroDescription = styled.p`
   line-height: 150%; /* 1.5rem */
 `;
 
+const ButtonsContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    align-items: start;
+
+    p {
+      display: none;
+    }
+  }
+`;
+
 const Hero = () => {
   return (
     <HeroContainer>
@@ -118,7 +134,18 @@ const Hero = () => {
           Join India’s largest chess charity in our mission of supporting 1000
           chess players and be a part of Indian Chess history.{" "}
         </HeroDescription>
-        <RazorPayButton />
+        <ButtonsContainer>
+          <RazorPayButton />
+          <p>or</p>
+          <Button
+            title="Apply For a Scholarship"
+            icon="/images/icons/plant.svg"
+            onClick={(e) => {
+              e.preventDefault();
+              window.open("https://apply.so/form/WlUcUhs", "_blank");
+            }}
+          />
+        </ButtonsContainer>
       </HeroTextContainer>
     </HeroContainer>
   );
