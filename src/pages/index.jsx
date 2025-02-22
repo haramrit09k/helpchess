@@ -383,7 +383,7 @@ export default function Home() {
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/favicon/apple-touch-icon.png" />
         <link rel="android-chrome" sizes="192x192" href="/images/icons/favicon/android-chrome-192x192.png" />
         <link rel="android-chrome" sizes="512x512" href="/images/icons/favicon/android-chrome-512x512.png" />
-            </Head>
+      </Head>
       <HomeContainer>
         <VideoModal
           videoId="_jPw8otX6Ts"
